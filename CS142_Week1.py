@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #Factorial of n 
 def factorial(n):
     if n == 1:
