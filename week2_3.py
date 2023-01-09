@@ -27,7 +27,6 @@ def insertion_sort_asc(input_list, check_mult):
     return input_list
 
 def insertion_sort_desc(input_list, check_mult):
-    breakpoint()
     for i in range(0, len(input_list), check_mult):
         current = input_list[i]
         j = i-check_mult
