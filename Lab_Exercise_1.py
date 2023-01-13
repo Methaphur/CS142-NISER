@@ -79,7 +79,7 @@ def insertion_sort(list1):
 
 def my_sort(list1,k):
   for i in range(1,len(list1)):
-    # Sorting the pos 3 elements in ascending order
+    # Sorting the pos k(3 in example) elements in ascending order
     if (i+1)%k == 0:
       current = list1[i]
       j = i -k
