@@ -76,12 +76,11 @@ def insertion_sort(list1):
     list1[j+1] = current
   return list1
 
-# Chances are this code is wrong
-# It just so happens to work for the input we are given ... Would be great if someone could pull a request on git
+
 def my_sort(list1,k):
   for i in range(1,len(list1)):
     # Sorting the pos 3 elements in ascending order
-    if (i+1)%3 == 0:
+    if (i+1)%k == 0:
       current = list1[i]
       j = i -k
       while j >= 0 and current < list1[j]:
