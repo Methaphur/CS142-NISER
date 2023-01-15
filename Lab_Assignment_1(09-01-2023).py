@@ -61,10 +61,10 @@ def fun(input):
 print(fun(input))
 print()
 
-print('3.')
-#Problem 3
-# Modifying the insertion sort algorithm to sort position of elements divisible by k in asccending order and the rest of the elements in descending order 
 
+#Problem 3
+# Modifying the insertion sort algorithm to sort position of elements divisible by k in asccending order 
+# and the rest of the elements in descending order 
 # Insertion sort Algorithm provided
 def insertion_sort(list1):
   for i in range(1,len(list1)):
@@ -76,36 +76,81 @@ def insertion_sort(list1):
     list1[j+1] = current
   return list1
 
+# Method using auxillary lists
 
-def my_sort(list1,k):
-  for i in range(1,len(list1)):
-    # Sorting the pos 3 elements in ascending order
-    if (i+1)%k == 0:
-      current = list1[i]
-      j = i -k
-      while j >= 0 and current < list1[j]:
-        list1[j+k] = list1[j]
-        j = j - k
-      list1[j+k] = current
-    
+def ins_sort(List,k):
 
-    # Sorting the rest of the elements in descending order
-    else:
-      current = list1[i]
-      j = i - 1
-      while j >= 0 and current > list1[j]:
-        if (j+1)%k == 0:
-          j = j - 1
-          list1[j+2] = list1[j]
-        else:
-          list1[j+1] = list1[j]
-        j = j -1 
-      list1[j+1] = current
-  return list1
-
-n = [31,12,21,55,14,1,51,30,2,7]
+  aux_1 = [i for i in range(k-1,len(List),k)] # Stores values of indicies in kth positions 
+  aux_2 = [i for i in range(len(List)) if i not in aux_1] # Stores indices of elements other than kth 
+  
+  # Soting of elements in kth pos in Ascending order
+  for i in range(len(aux_1)):
+    current = List[aux_1[i]]
+    j = i -1
+    while j >= 0 and current < List[aux_1[j]]:
+      List[aux_1[j+1]] = List[aux_1[j]]
+      j = j -1 
+    List[aux_1[j+1]] = current
+  
+  # Sorting of all other elements in Descending order
+  for i in range(len(aux_2)):
+    current = List[aux_2[i]]
+    j = i -1
+    while j >= 0 and current > List[aux_2[j]]:
+      List[aux_2[j+1]] = List[aux_2[j]]
+      j = j -1 
+    List[aux_2[j+1]] = current 
+  
+  return List
+print('3.a (Aux lists)')
+n = [31,12,21,55,22,1,51,30,2,7]
 k = 3
+print(ins_sort(n,k))
+print()
+
+
+# Sorting algorithm without using auxillary lists
+
+def my_sort(List,k):
+    #Sorting in Ascending order
+    for i in range(k-1,len(List),k):
+        current = List[i]
+        j = i-k
+        while j>=0 and List[j] > current:
+            List[j+k] = List[j]
+            j -= k
+        List[j+k]=current
+        
+    #Sorting in Descending order
+    for i in range(len(List)):
+        if (i+1)%k!=0:
+            current = List[i]
+            if i%k == 0:
+                j = i-2
+            else:
+                j = i-1
+            while j>=0 and List[j]<current:
+                if (j+2)%k==0:
+                    List[j+2]=List[j]
+                else:
+                    List[j+1]=List[j]
+                if j%k == 0:
+                    j-=2
+                else:
+                    j-=1
+            if (j+2)%k == 0:
+                List[j+2]=current
+            else:
+                List[j+1]=current
+    
+    return List
+
+n = [31,12,21,55,22,1,51,30,2,7]
+k = 3
+print('3.b W/o Aux lists')
 print(my_sort(n,k))
+print(my_sort([10,7,9,8],3)) # Rosha, here you go <3
+
 print()
 
 
@@ -129,7 +174,6 @@ def inversion_pair(list1):
       j = j -1 
     list1[j+1] = current
   return count
-
 
 n = [31,12,21,55,14,1,51,30,2,7]
 print("Inversion pairs:",end = " ")
