@@ -46,8 +46,6 @@ print()
 # From a given list of n elements and target t , find elements a and b 
 # such that a x b =  t . Algorithm must be in O(n) complexity 
 
-
-
 # Approach 1 
 # Using dictionary: Accessing elements from a dictionary has O(1) complexity 
 # Python uses hash tables to work with dictionaries
@@ -65,6 +63,7 @@ print('Qs2. Approach 1')
 print(arr,"target =",t)
 print(func(arr,t))
 print()
+
 # Approach 2
 # Traversing through the list once by going through elements from left and right
 # Given our list is sorted
@@ -88,6 +87,7 @@ print('Qs2. Approach 2')
 print(fun2(arr,132))
 print()
 
+# Question 3 
 # Given string S and an order O . Using the order O , sort the chars in S
 # Modify Insertion sort
 # Comparing values in insertion sort by comparing indices of those elements in Order O
