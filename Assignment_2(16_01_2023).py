@@ -17,30 +17,29 @@ def operation(n1,n2,operator):
     return n1 + n2
   if operator == '-':
     return n1 - n2
+    
+# Defininf a function to return index of character in list 
+
+def index_find(arr,char):
+    for index in range(len(arr)):
+        if arr[index] == char:
+            return index
 
 # Where the Actual magic happens
-def fun(arr,i = 0):
+def fun(arr):
     # Defining Result condition 
     if len(arr) == 1:
       return arr[0]
 
-    # Checking if valid operation 
-    if arr[i] == ')':
-      # Calcualting operation using custom function
-      result = operation(arr[i-3],arr[i-1],arr[i-2])
-      # Replacing the ")" with computed result 
-      arr[i] = result
-      # Deleting "(" , n1 , n2 and the operator
-      del arr[i-4:i]
-      # Resetting search for ")"
-      i = 0
-      return fun(arr,i)
-    
-    else:
-      # Increment search parameter by 1
-      i += 1
-      return fun(arr,i)
-
+    # Finding end of operation
+    i = index_find(arr,")")
+    # Calcualting operation using custom function
+    result = operation(arr[i-3],arr[i-1],arr[i-2])
+    # Replacing the ")" with computed result 
+    arr[i] = result
+    # Deleting "(" , n1 , n2 and the operator
+    del arr[i-4:i]
+    return fun(arr)
 print(fun(list1))
 print()
 
