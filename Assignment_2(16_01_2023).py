@@ -67,7 +67,7 @@ print('Qs2. Approach 1')
 print(arr,"target =",t)
 print(func(arr,t))
 print()
-# Approach 2: Success 
+# Approach 2
 # Traversing through the list once by going through elements from left and right
 # Given our list is sorted
 def fun2(arr,t):
