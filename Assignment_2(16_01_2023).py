@@ -17,9 +17,8 @@ def operation(n1,n2,operator):
     return n1 + n2
   if operator == '-':
     return n1 - n2
-    
-# Defininf a function to return index of character in list 
 
+# Defininf a function to return index of character in list 
 def index_find(arr,char):
     for index in range(len(arr)):
         if arr[index] == char:
