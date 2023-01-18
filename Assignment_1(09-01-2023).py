@@ -10,27 +10,51 @@ def expo(n,m):
   else:
     # Else make n^m as n*(n^m-1)
     return n*expo(n**2,(m-1)/2) 
+
+# Using binary representtion to solve 
+
+# function to return binary format of a number
+def bin_conv(n):
+    binary = bin(n)[2:]
+    return binary
+
+def power(n,m):
+# Init a dictionary
+    powers = {}
+    bin = bin_conv(m)
+    for i in range(len(bin)):
+#       If the ith position(from right) is 1 , key i : n^(2^i) 
+        if bin[len(bin)-(i+1)] == "1":
+            powers[i] = n**(2**i)
+
+    count = 1
+#     Product of values return our desired product
+    for value in powers.values():
+        count *= value
+    return count
+
 print('1.')
 print(expo(2,3))
+print(power(2,43))
 print()
 
 print('2.a)')
-#Find course in course list of 2n-1 elements with only 1 appearance 
+# Find course in course list of 2n-1 elements with only 1 appearance 
 
 input = ['B102','C102','CS142','M102','C102','M102','B102','P102','P102']
 # Init an empty dictionary
 courses = {}
 def course_dict(input):
-  # Iterating through elements in input
+#   Iterating through elements in input
   for i in input:
-    # If element not in dict , set a key with value 1
+#     If element not in dict , set a key with value 1
     if i not in courses:
       courses[i] = 1
     else:
-      # If element already present , increment value of key by 1
+#       If element already present , increment value of key by 1
       courses[i] += 1
 
-    # Fidning key with value 1 
+#     Fidning key with value 1 
   for key,value in courses.items():
     if value == 1:
       return key
@@ -46,16 +70,16 @@ print("2.b)")
 
 input = [3,1,2,5,4,1,5,3,2]
 def fun(input):
-  # Finding sum of n numbers and doubling it 
+#   Finding sum of n numbers and doubling it 
   n = (len(input)+1)//2
   sum = n*(n+1)
-  # Finding the sum of elements in the list
+#   Finding the sum of elements in the list
   l_sum = 0 
   for i in input:
     l_sum += i
-  # Returning the double of sum of n elements and subtracting the sum of our given list , returning us with the element only appearing once
-  # eg: Our input list is (1,1,2)
-  #   : (1,1,2,2) - (1,1,2) = 2
+#   Returning the double of sum of n elements and subtracting the sum of our given list , returning us with the element only appearing once
+#   eg: Our input list is (1,1,2)
+#     : (1,1,2,2) - (1,1,2) = 2
   return(sum - l_sum)
 
 print(fun(input))
@@ -83,7 +107,7 @@ def ins_sort(List,k):
   aux_1 = [i for i in range(k-1,len(List),k)] # Stores values of indicies in kth positions 
   aux_2 = [i for i in range(len(List)) if i not in aux_1] # Stores indices of elements other than kth 
   
-  # Soting of elements in kth pos in Ascending order
+#   Soting of elements in kth pos in Ascending order
   for i in range(len(aux_1)):
     current = List[aux_1[i]]
     j = i -1
@@ -92,7 +116,7 @@ def ins_sort(List,k):
       j = j -1 
     List[aux_1[j+1]] = current
   
-  # Sorting of all other elements in Descending order
+#   Sorting of all other elements in Descending order
   for i in range(len(aux_2)):
     current = List[aux_2[i]]
     j = i -1
@@ -112,7 +136,7 @@ print()
 # Sorting algorithm without using auxillary lists
 
 def my_sort(List,k):
-    #Sorting in Ascending order
+#     Sorting in Ascending order
     for i in range(k-1,len(List),k):
         current = List[i]
         j = i-k
@@ -121,7 +145,7 @@ def my_sort(List,k):
             j -= k
         List[j+k]=current
         
-    #Sorting in Descending order
+#     Sorting in Descending order
     for i in range(len(List)):
         if (i+1)%k!=0:
             current = List[i]
