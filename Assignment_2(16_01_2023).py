@@ -52,9 +52,9 @@ print()
 def func(arr,t):
     hash = {}
     for i in range(len(arr)):
-        var = t//arr[i]
+        var = t/arr[i]
         if var in hash:
-            return f'{var} and {arr[i]}'
+            return f'{int(var)} and {arr[i]}'
         hash[arr[i]] = 1
 
 arr = [1, 5, 6, 8, 13, 17, 22, 45]
