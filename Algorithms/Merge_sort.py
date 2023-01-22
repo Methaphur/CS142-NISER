@@ -17,7 +17,7 @@ def merge(left,right):
   while left and right:
     # Appending smaller element to temp list and removing it from parent list
     if left[0] < right[0]:
-      a = left.pop(0)
+      a = left.pop(0) 
     else:
       a = right.pop(0)
     Li.append(a)

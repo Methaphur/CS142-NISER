@@ -30,7 +30,7 @@ def fun(arr):
     if len(arr) == 1:
       return arr[0]
 
-    # Finding end of operation
+    # Finding end of operation  
     i = index_find(arr,")")
     # Calcualting operation using custom function
     result = operation(arr[i-3],arr[i-1],arr[i-2])
