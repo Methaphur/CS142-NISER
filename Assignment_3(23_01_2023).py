@@ -1,6 +1,6 @@
 # Question 1 
 # Evaluating a well defined expression using divide and conquer approach
-
+print("Qs 1.")
 list1=['(','(',3,'+',2,')','-','(','(',1,'-',2,')','+',5,')',')']
 # Better visibility of the question 
 print("".join([str(i)for i in list1]))
@@ -52,3 +52,81 @@ def evaluate(arr):
     return evaluate(["(",left,arr[i],right,")"])
 
 print(evaluate(list1))
+print()
+# Question 2
+# Find number of inversion pairs using merge sort
+# Just add a global counter variable 
+count = 0
+def merge_sort(input_list):
+  if len(input_list) == 1:
+    return input_list
+  
+  mid = len(input_list)//2
+  left_list = merge_sort(input_list[:mid])
+  right_list = merge_sort(input_list[mid:])
+  return merge(left_list,right_list)
+
+def merge(left,right):
+  global count
+  Li = []
+  while left and right:
+    if left[0] < right[0]:
+      a = left.pop(0) 
+    else:
+      count += 1
+      a = right.pop(0)
+    Li.append(a)
+    
+  if not left:
+    Li = Li + right
+  else:
+    Li = Li + left
+  return Li
+
+print("Qs 2.")
+A = [8, 4, 2, 1]
+print(merge_sort(A))
+print(f'Number of inversion pairs:{count}')
+print()
+
+
+print("Qs 3.")
+# Question 3 :
+# Modifying insertion sort to improve number of comparisons
+# Logic : Basic insertion sort algorithm but instead of looping through all the elements
+# We find the  position to insert the current element in the left side of the "sorted" list
+# Finding the position using binary search (divide and conquer approach)
+
+def insertion_sort(arr):
+  for i in range(1,len(arr)):
+    current = arr[i]
+    # Comapre is the alr sorted part of my list
+    compare = arr[:i]
+    # Returning the list with current element and the rest of the list
+    arr = comparison(compare,current) + arr[i+1:]
+  return arr
+
+
+def comparison(arr,current):
+  if len(arr) == 1:
+    if arr[0] <  current:
+        arr.insert(1,current)
+        return arr
+    else:
+      arr.insert(0,current) 
+      return arr
+      
+  mid = len(arr)//2
+  left = arr[:mid]
+  right = arr[mid:]
+  if right[0] > current:
+    return comparison(left,current)+right
+  else:
+    return left+comparison(right,current) 
+
+A = [21,3,4,16,8,1,17,2]
+print(insertion_sort(A))
+print()
+
+print("Qs. 4")
+# Amogus
