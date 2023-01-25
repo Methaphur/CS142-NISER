@@ -73,7 +73,7 @@ def merge(left,right):
     if left[0] < right[0]:
       a = left.pop(0) 
     else:
-      count += 1
+      count += len(left)
       a = right.pop(0)
     Li.append(a)
     
@@ -129,4 +129,25 @@ print(insertion_sort(A))
 print()
 
 print("Qs. 4")
-# Amogus
+# Find the median of 2 sorted lists when joined 
+
+def median(arr1,arr2):
+  # Base condition :
+  if len(arr1) == 2:
+    return f'{max(arr1[0], arr2[0])} and {min(arr1[1], arr2[1])}'
+  
+  # Checking mid element
+  mid1 = len(arr1)//2
+  mid2 = len(arr1)//2 + len(arr1)%2 - 1
+
+  if arr1[mid1] == arr2[mid2]:
+    return (arr1[mid1],arr1[mid1])
+  # Dividing list by half and returning only median ranges significant
+  elif arr1[mid1] < arr2[mid2]:
+    return median(arr1[mid1:],arr2[:mid2+1])
+  else:
+    return median(arr1[:mid1+1],arr2[mid2:])
+
+list1 = [3,5,6,7,9]
+list2 = [5,8,9,11,23]
+print(median(list1,list2))
