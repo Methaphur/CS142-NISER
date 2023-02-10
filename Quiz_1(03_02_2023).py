@@ -18,7 +18,46 @@ def transition(arr,left,right):
 
 list1 = [1,1,1,2,2,2,2]
 print("Qs 1.a")
+print(list1)
 print(transition(list1,0,len(list1)))
+print()
+
+# Question 1.b
+def F(L1,L2):
+  diff = 0 
+  for x in L1: diff += x
+  for y in L2: diff -= y
+  return diff
+
+def find_2(arr,left,right):
+  # Making length of list even
+  if len(arr)%2 != 0 :
+    arr.append(1)
+    right += 1
+  
+  # Traveresed through list and 2 not found
+  if left > right:
+    return False
+  
+  
+  mid = (left+right)//2
+  # Base condition 
+  if arr[mid] == 2:
+    return mid
+
+  # Finding difference of left anf right halves
+  left_list = arr[left:mid]
+  right_list = arr[mid:right]
+  diff = F(left_list,right_list)
+  # if diff greater than zero , 2 is in left half else check right half
+  if diff > 0:
+    return find_2(arr,left,mid)
+  return find_2(arr,mid,right)
+ 
+print("Qs 1.b")
+array = [1,1,1,2,1,1]
+print(array)
+print(find_2(array,0,len(array)))
 print()
 
 # Question 2.a
@@ -86,7 +125,6 @@ def count_way(n):
 n = 8
 print("Qs 2.b")
 print(count_way(n))
-
 # To complete the function in O(n) time , we are expected to use Memorization (DP)
 def opt_count_way(n):
   count = [0]*n  # Init a memory list with n zeroes
@@ -104,7 +142,7 @@ def opt_count_way(n):
         count[n-1] = count_ways(n-1,count) + count_ways(n//2,count)
       return count[n-1]
   return count_ways(n,count)
-print(opt_count_way(n))
+
 
 
 
