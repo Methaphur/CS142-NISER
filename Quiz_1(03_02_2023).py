@@ -1,4 +1,7 @@
 # Question 1. a) 
+'''Given a list of size n consisting of consecutive 1s followed by consecutive 2s, find the
+position of transition from 1 to 2 in O(log n) time.'''
+
 def transition(arr,left,right):
     # List has been traversed through and no such transition exists
     if left >= right:
@@ -23,6 +26,12 @@ print(transition(list1,0,len(list1)))
 print()
 
 # Question 1.b
+
+'''Suppose you have a function F such that given two lists L1 and L2, f(L1, L2) returns the
+difference of the sum of the elements of L1 and L2. Now given a list of size n that consists
+of n - 1 many 1s and a single 2, find the position of 2 making at most 2 log n many calls
+to the function F'''
+
 def F(L1,L2):
   diff = 0 
   for x in L1: diff += x
@@ -61,6 +70,8 @@ print(find_2(array,0,len(array)))
 print()
 
 # Question 2.a
+'''Given a list L and an integer N, write a code of merge sort to sort L that uses insertion
+sort as the base case when the list is of size ≤ N.'''
 
 def my_sort(arr,N):
     # if list size is less than N : Call insertion_sort on list
@@ -110,7 +121,11 @@ print(my_sort(list1,N))
 print()
 
 # Question 2.b)
-# Jump one stair at a time or i steps when on ith step
+
+'''Suppose there are n stairs. You are standing at the bottom (0th stair) and want to reach
+the top. If you are at ith stair, you can climb either 1 stair or jump i stairs at a time.
+How many ways you can reach the top?'''
+
 # f(n) = f(n-1)           n is odd
 # f(n) = f(n-1) + f(n/2)  n is even
 
@@ -147,4 +162,5 @@ def opt_count_way(n):
 
 
 # Question 3 : just search for kth element of 2 sorted lists on geeks for geeks
-# Babunga code too lazy to comment/type
+'''Given 2 sorted lists of size m and n Find the kth element in
+O(log m + log n) time '''
