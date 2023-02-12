@@ -157,10 +157,44 @@ def opt_count_way(n):
         count[n-1] = count_ways(n-1,count) + count_ways(n//2,count)
       return count[n-1]
   return count_ways(n,count)
-
-
-
+print()
 
 # Question 3 : just search for kth element of 2 sorted lists on geeks for geeks
 '''Given 2 sorted lists of size m and n Find the kth element in
 O(log m + log n) time '''
+
+def find_k(arr1, arr2, m, n, k): 
+    if m == 1 or n == 1:
+        if n == 1:
+            arr2, arr1 = arr1, arr2
+            n = m
+        if k == 1:
+            return min(arr1[0], arr2[0])
+        elif k == n + 1:
+            return max(arr1[0], arr2[0])
+        else:
+            if arr2[k - 1] < arr1[0]:
+                return arr2[k - 1]
+            else:
+                return max(arr1[0], arr2[k - 2])
+ 
+    mid1 = (m - 1)//2
+    mid2 = (n - 1)//2
+ 
+    if mid1 + mid2 + 1 < k:
+        if arr1[mid1] < arr2[mid2]:
+            return find_k(arr1[mid1 + 1:], arr2, m - mid1 - 1, n, k - mid1 - 1)
+        else:
+            return find_k(arr1, arr2[mid2 + 1:], m, n - mid2 - 1, k - mid2 - 1)
+    else:
+        if arr1[mid1] < arr2[mid2]:
+            return find_k(arr1, arr2[:mid2 + 1], m, mid2 + 1, k)
+        else:
+            return find_k(arr1[:mid1 + 1], arr2, mid1 + 1, n, k)
+
+
+list1 = [1,6,8,9]
+list2 = [2,4,7,7,8,9]
+print(sorted(list1+list2))          # Just verifying kth element
+print([i+1 for i in range(len(list1+list2))]) 
+print(find_k(list1,list2,len(list1),len(list2),4))
