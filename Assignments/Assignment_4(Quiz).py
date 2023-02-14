@@ -162,7 +162,7 @@ print()
 # Question 3 : just search for kth element of 2 sorted lists on geeks for geeks
 '''Given 2 sorted lists of size m and n Find the kth element in
 O(log m + log n) time '''
-
+# Code's not mine </3
 def find_k(arr1, arr2, m, n, k): 
     if m == 1 or n == 1:
         if n == 1:
