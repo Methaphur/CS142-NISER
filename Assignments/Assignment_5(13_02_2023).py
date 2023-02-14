@@ -9,10 +9,10 @@ def print_board(board):
     # Fancy way of printing the matrix
     pieces = {0 :" ", 1 :"Q"}     # 0s with spaces and 1s with Queen
     print('   ',end= "")
-    print(*[i%10 for i in range(len(board))],sep = "  ") # printing top indices (just for reference)
+    print(*[i for i in range(len(board))],sep = "  ") # printing top indices (just for reference)
     i = 0
     for row in board:
-        print(i%10,end = " ") # printing vertical indices (just for reference)
+        print(i,end = " ") # printing vertical indices (just for reference)
         for item in row:
             print(f"|{pieces[item]}|",end = "")  #Printing |chess_piece|
             # print(f"|{item}|",end = "")
@@ -80,7 +80,7 @@ def n_queen(board,row):
                 n_queen(board,row+1)
             board[row][col] = 0 # If not set that square as empty and move to next column
 
-N = 5
+N = 8
 count = 0
 board = generate_board(N)    
 
