@@ -21,9 +21,9 @@ def print_board(board):
         i += 1
     print()
 
-def basic_print(board):
-    for row in board:
-        print(row)
+def basic_print(board):  # Basically this function was enough to print the matrix
+    for row in board:    
+        print(row)  
     print()
 
 # Function to check if the current square has a queen
