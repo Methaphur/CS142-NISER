@@ -1,30 +1,21 @@
-def subset_sum(arr, target):
-    arr.sort() # Sorting the array so that weight gradually increases
-    def is_subset_sum(current, weight, current_subset):
-        # If sum has gone past the target element : skip
-        if weight + arr[current] > target: 
-            return False  
+def subset_sum(arr,target,length): # Wrapper function
+    def _subset_sum(subsets,curr): 
+        if curr == len(arr):       # Iterating through all elements in list
+            return None
         
-        # If the sum till current element is target 
-        elif weight + arr[current] == target:   
-            return True
-
-        # Current has gone through all the elements in the list
-        # Still no such sum pair has been found 
-        if current == len(arr) - 1:
-            return False
-        
-        else:
-        # We call the subset function twice , once where we include the current element in the sum
-        # And one where we exclude the current element in the sum
-          include = is_subset_sum(current+1, weight + arr[current], current_subset + [arr[current]]) 
-          exclude = is_subset_sum(current+1, weight, current_subset)
-
-          return  include or exclude
+        if sum(subsets) > target:  # If subset sum > target : skip
+            return None 
     
-    return is_subset_sum(0, 0, [])
+        if sum(subsets) == target and len(subsets) == length:
+            print(subsets)         # Requires subset sum condition
 
-input = [2,3,5,12,15]
-target = 27
-print(f'Input = {input} target = {target}')
-print(subset_sum(input,target))
+        _subset_sum(subsets+[arr[curr]],curr+1)  # Including current element
+        _subset_sum(subsets,curr+1)              # Excluding current element
+    
+    _subset_sum([],0)              # Callign function with empty subset and starting curr 0 
+
+list1 = [3,34,4,12,5,2]
+target = 9
+k = 2 
+print(f'Input = {list1} target = {target} length = {k}')
+subset_sum(list1,target,k)
