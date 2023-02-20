@@ -33,13 +33,42 @@ def subset_sum(arr, target, length):
     
     return is_subset_sum(0, 0, [])
 
-print("Qs 1.a")
+print("Qs 1.a Approach 1 ")
 input = [3,34,4,5,12,5,2]
 target = 9
 length = 2
 print(f'Input = {input} target = {target} length = {length}')
 print(subset_sum(input,target,length))
 print()
+
+# Alternate much shorter code for subset sum
+# Second part can be solved in the same analogy , just add the same wrapper function as in 1.a)
+
+def subset_sum(arr,target,length): # Wrapper function
+    def _subset_sum(subsets,curr): 
+        if curr == len(arr):       # Iterating through all elements in list
+            return None
+        
+        if sum(subsets) > target:  # If subset sum > target : skip
+            return None 
+    
+        if sum(subsets) == target and len(subsets) == length:
+            print(subsets)         # Requires subset sum condition
+
+        _subset_sum(subsets+[arr[curr]],curr+1)  # Including current element
+        _subset_sum(subsets,curr+1)              # Excluding current element
+    
+    _subset_sum([],0)              # Callign function with empty subset and starting curr 0 
+
+list1 = [3,34,4,12,5,2]
+target = 9
+k = 2 
+print("Qs 1.a Approach 2")
+print(f'Input = {list1} target = {target} length = {k}')
+subset_sum(list1,target,k)
+print()
+
+
 # Problem 1.b)
 '''Given a set of positive and negative integers, and a value t, and an integer k determine
 if there is a subset of size exactly k, such that the sum of the elements in the set is equal to
@@ -84,6 +113,7 @@ print("Qs 1.b")
 input = [3,34,4,5,12,5,2,-3,-5,-4]
 target = -12
 length = 3
+print(f'Input = {input} target = {target} length = {length}')
 print(subset_sum(input,target,length))
 print()
 # Problem 2
