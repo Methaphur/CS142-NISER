@@ -1,15 +1,10 @@
-# CS142-Lab-works
-A Github repo containing all the CS142 Lab works and Assignments. 
+# CS142 - NISER
+A well explained course work for CS142. 
 
 
--2022 Batch 
+National Institue of Science Education and Research
 
 
-Work will be mostly uploaded as Colab notebook files. 
+Made with love: Harisankar Binod <3
 
-
-.ipynb files are Google Colab files and contain notes 
-
-
-.py files are python files :)
 
