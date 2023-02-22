@@ -214,9 +214,8 @@ print(f'Count = {count}')
 print()
 
 # Question 2.b)
-# Added a knight condition to N Queen problem and minor code change 
+# Added a knight condition to N Queen problem 
 # N Queen problem
-# I'm not sure if the logic is correct for this one , pls feel free to pull request
 def generate_board(N):
     board = [[0 for i in range(N)] for i in range(N)]
     return board
@@ -283,6 +282,7 @@ def valid_spot(row,column,board):
 
 N = 8
 board = generate_board(N)
+# For each position in a row check if valid , if yes it's added and next row checked
 def super_queen(board):
     count = 0
     max_queen = 0
