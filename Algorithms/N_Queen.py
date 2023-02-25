@@ -48,7 +48,8 @@ def valid_spot(row,column,board):
      
     # The diagonal logic is just me using matrix logic
     # You can brute force it and check all the different indices 
-    # Right diagonal condition
+
+    # Left diagonal (up) condition
     rows , col = row,column
     while rows >= 0 and col >= 0:
         if board[rows][col] == 1:
@@ -56,13 +57,31 @@ def valid_spot(row,column,board):
         rows -= 1
         col  -= 1
 
-    # Left diagonal condition
+    # Left diagonal (down)  condition
+    rows , col = row,column
+    while rows < len(board) and col >= 0:
+        if board[rows][col] == 1:
+            return False
+        rows += 1
+        col  -= 1
+
+    # Right diagonal (up) condition
     rows , col = row , column
     while rows >= 0 and col < len(board):
         if board[rows][col] == 1:
             return False
         rows -= 1
         col += 1
+
+   # Right diagonal down condition
+    rows , col = row , column
+    while rows < len(board) and col < len(board):
+        if board[rows][col] == 1:
+            return False
+        rows += 1
+        col += 1
+
+    
     # If spot is not conlficting with any other spot return True
     return True
 
