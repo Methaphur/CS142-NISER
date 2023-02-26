@@ -85,7 +85,7 @@ def valid_spot(row,column,board):
     # If spot is not conlficting with any other spot return True
     return True
 
-
+import time 
 def n_queen(board,row):
     global count
     # Base condition: Queen has been placed in every row
@@ -104,9 +104,12 @@ def n_queen(board,row):
                 n_queen(board,row+1)
             board[row][col] = 0 # If not set that square as empty and move to next column
 
+
 N = int(input("NxN chess board: "))
 count = 0
+start = time.time()
 board = generate_board(N)    
-
 n_queen(board,0)
+end = time.time()
 print(f'All permissible N Queen configurations = {count}')
+print(f'Time taken to execute : {end-start}')
