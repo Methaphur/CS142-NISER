@@ -7,7 +7,7 @@ def generate_board(N):
 
 def print_board(board):
     pieces = {0:" ", 1:"Q" } 
-    print('   ',end= "")
+    print('    ',end= "")
     print(*[i for i in range(len(board))],sep = "  ")
     i = 0
     for row in board:
