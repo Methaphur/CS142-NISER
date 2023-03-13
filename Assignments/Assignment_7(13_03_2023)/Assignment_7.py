@@ -2,7 +2,7 @@
 Qs1. Create a singly linked list with insert and delete operations at the beginning
 and at the end where each node contains an alphabet and a number as data.
 '''
-
+print("Qs 1 Insertion and Deletion")
 # Single linked list , insertion and deletion of elements
 class Node:
     def __init__(self,alpha,num):
@@ -82,12 +82,13 @@ list1.print_list()
 
 list1.delete_at_end()
 list1.print_list()
+print()
 
 '''
 Qs 2. Check if the alphabets in the linked list from left to right induce a palindrome
 or not in O(n) time where n is the length of the linked list.
 '''
-
+print("Qs 2 Palindrome check")
 # Approach 1: Using a temporary array 
 class Node:
     def __init__(self,data):
@@ -119,6 +120,10 @@ class LinkedList:
         
         temp.next = new_node
         
+    def extend(self,data): # Appending a list
+        for data in data:
+            self.append(data)
+            
     def is_palindrome(self): # Using a temp array to store data 
         check = []
         temp = self.head
@@ -134,9 +139,91 @@ class LinkedList:
         # print('Not a palindrome')
         return False
 
-
 list1 = LinkedList()
-list1.extend(['r','a','c','e','c','a','r',])
+list1.extend(['r','a','c','e','c','a','r',]) # Palindrome Linked list
 list1.print_list()
 print(list1.is_palindrome())
 
+list2 = LinkedList()
+list2.extend(['M','e','t','h','a','p','h','u','r']) # Not a palindrome
+list2.print_list()
+print(list2.is_palindrome())
+print()
+
+# Approach 2: Reversing linked list and traversing both again
+print("Qs 2 Approach 2: ")
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+    
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def print_list(self):
+        temp = self.head
+        while temp:
+            print(f'{temp.data} ->', end=" ")
+            temp = temp.next
+        print(None)
+    
+
+    def append(self,alpha):  # same as insert_at_end()
+        new_node = Node(alpha)
+        
+        if self.head is None:
+            self.head = new_node
+            return 
+        
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        
+        temp.next = new_node
+    
+    def extend(self,data): # Appending a list
+        for data in data:
+            self.append(data)
+
+    def insert_at_start(self,data):
+        new_node = Node(data)
+
+        current = self.head 
+        self.head = new_node
+        new_node.next = current
+
+    def reverse_list(self):
+        reverse_list = LinkedList()
+
+        temp = self.head
+        while temp:
+            reverse_list.insert_at_start(temp.data)
+            temp = temp.next
+        return reverse_list
+
+
+    def is_palindrome(self):
+        reverse = self.reverse_list()
+
+        temp = self.head
+        r_temp = reverse.head
+        while temp:
+            if temp.data == r_temp.data:
+                temp = temp.next
+                r_temp = r_temp.next
+            else:
+                return False
+        
+        return True
+
+
+list1 = LinkedList()
+list1.extend(['r','a','c','e','c','a','r',]) # Palindrome Linked list
+list1.print_list()
+print(list1.is_palindrome())
+
+list2 = LinkedList()
+list2.extend(['M','e','t','h','a','p','h','u','r']) # Not a palindrome
+list2.print_list()
+print(list2.is_palindrome())
