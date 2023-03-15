@@ -79,7 +79,7 @@ class LinkedList:
 
 
             if fast_node is not None:
-                mid = prev_slow  # only stored for reconstructing our linked list
+                mid = prev_slow.next # only stored for reconstructing our linked list
                 slow_node = slow_node.next
 
             remaining_list = slow_node
@@ -92,7 +92,7 @@ class LinkedList:
 
         # Reconstructing Original Linked list
             remaining_list = self.reverse_list(remaining_list)
-            if mid is not None: # There was a mid node (odd number of nodes)
+            if mid: # There was a mid node (odd number of nodes)
                 prev_slow.next = mid
                 mid.next = remaining_list
 
@@ -120,9 +120,12 @@ class LinkedList:
 
 
 list1 = LinkedList()
-list1.extend(['a','b','c','d','e','f'])
+list1.extend(['C','S','1','4','2'])
+list1.print_list()
+print(list1.isPalindrome(list1.head))
+print()
+
 list2 = LinkedList()
 list2.extend(['r','a','c','e','c','a','r'])
-# list1.isPalindrome(list1.head)
+list1.print_list()
 print(list2.isPalindrome(list2.head))
-list2.print_list()
