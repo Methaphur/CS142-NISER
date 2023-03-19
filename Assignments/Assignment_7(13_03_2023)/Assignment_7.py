@@ -373,6 +373,86 @@ Rearrange the nodes (links between them) to sort the linked list (based on the
 number data) using (a) insertion sort sort algorithm, (b) merge sort algorithm.
 '''
 
+print("Qs 3.a Insertion Sort for Linked List ")
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+
+class LinkedList:
+  def __init__(self):
+    self.head = None
+
+  def print_list(self):
+    node = self.head
+    while node:
+      print(f'{node.data} -> ', end='')
+      node = node.next
+    print(None)
+  
+  def append(self,data):
+    node = Node(data)
+    temp = self.head
+    if not temp:
+      self.head = node
+
+    while temp:
+      if temp.next is None:
+        temp.next = node
+        node.next = None
+      temp = temp.next
+
+  def extend(self,data):
+    for i in data:
+        self.append(i)
+
+  def insert_into_sorted_list(self, sorted, node):
+    head = sorted.head
+
+    if not head: # empty list
+      sorted.append(node.data)
+      return sorted
+
+    prev = None
+    while head:
+      if head.data >= node.data:
+
+        if prev:
+          prev.next = node
+        else: # if no prev exists make it the first node
+          sorted.head = node
+
+        node.next = head
+        return sorted
+
+      prev = head
+      head = head.next
+
+    # otherwise insert at the end
+    sorted.append(node.data)
+    return sorted
+
+  def insertion_sort(self):
+    '''
+    using the insertion sort algorithm on a linked list
+    '''
+    sorted = LinkedList()
+    head = self.head
+    
+    while head:
+      next = head.next
+      sorted = self.insert_into_sorted_list(sorted, head)
+      head = next
+
+    return sorted
+
+list1 = LinkedList()
+list1.extend([1,3,2,6,7,8,4])
+list1.print_list()
+list1 = list1.insertion_sort()
+list1.print_list()
+print()
+
 print("Qs 3.b Merge Sort for Linked Lists")
 class Node:
     def __init__(self,data):
