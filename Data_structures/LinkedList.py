@@ -26,7 +26,7 @@ class LinkedList:
         node = Node(node_data)
         
         if self.head is None:
-            node = self.head
+            self.head = node
             return
         
         temp = self.head
