@@ -134,7 +134,8 @@ class BinaryTree:
     
 
 print("Qs 2. Expression to Tree")
-expression =  ['(', '(', 3, '+', 5, ')', 'x', '(', 4, 'x', 2, ')', ')']
+expression =  ['(', '(', 3, '+', 5, ')', 'x', 7 , ')']
+expression = ['(', '(', 4, '+', '(', 6, 'x', 8, ')', ')', 'x', 5, ')']
 
 operation = BinaryTree()
 operation.CreateTreeFromList(expression,operation.root)
