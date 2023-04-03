@@ -35,7 +35,7 @@ class HashTable:
             for index,item in enumerate(self.memory[Key]):
                 if item.key == key:
                     self.memory[Key].pop(index)
-                    
+
 print("Qs 1.")
 st1 = Item("John",12)
 st2 = Item("Doe",13)
@@ -50,17 +50,17 @@ print()
 print("Qs 2.")
 table = HashTable(10)
 print("\nItem Insertion")
-print(f'ILY: {table.search("ILY")}')
+print(f'ily: {table.search("ily")}')
 
 table.insert(Item("Methaphur" ,69))
-table.insert(Item("ILY",143))
+table.insert(Item("ily",143))
 table.insert(Item("Amongus",8055))
 
 print("After Insertion")
-print(f'ILY: {table.search("ILY")}')
+print(f'ily: {table.search("ily")}')
 
 print("\nItem Search")
-print(f'ILY: {table.search("ILY")}')
+print(f'ily: {table.search("ily")}')
 
 print("\nItem Deletion")
 print(f'Methaphur: {table.search("Methaphur")}')
