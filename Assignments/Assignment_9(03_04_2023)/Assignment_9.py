@@ -26,6 +26,7 @@ class HashTable:
             for i in self.memory[Key]:
                 if i.key == key:
                     return i.value
+            return f'{key} not in Hash Table'
 
     def delete(self,key):
         Key = self.my_hash(hash(key))
