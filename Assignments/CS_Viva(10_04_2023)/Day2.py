@@ -3,7 +3,7 @@
 
 def transition(arr, left, right):
     # List has been traversed through and no such transition exists
-    if left >= right:
+    if left > right:
         return False
 
     # if mid-element is 2 and prev element is 1 , transition occurred
