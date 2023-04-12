@@ -3,11 +3,10 @@ class Node:
         self.data = data 
         self.next = None
     
-
+    
 class LinkedList:
     def __init__(self):
         self.head = None
-    
     
     def add(self,node_data):
         node = Node(node_data)
@@ -33,7 +32,36 @@ class LinkedList:
         while temp.next:
             temp = temp.next
         temp.next = node
- 
+        
+    # Inserting node at i'th position
+    def insert_ith(self,index,data):
+        node = Node(data)
+        
+        if self.head is None:
+            if index != 0:
+                print('Index out of Range')
+                return 
+            
+        if index == 0:
+            temp = self.head
+            self.head = node
+            node.next = temp
+            return
+        
+        count = 1 
+        temp = self.head
+        while temp:
+            if count == index:
+                next = temp.next
+                temp.next = node
+                node.next = next
+                return
+            else:
+                count += 1
+                temp = temp.next
+
+        print('Index out of range')    
+    
     def delete_last(self):
         if self.head is None:
             return
@@ -43,7 +71,28 @@ class LinkedList:
             temp = temp.next
         
         temp.next = None
+
+    # Deleting i'th element in list
+    def delete_ith(self,index):
+        temp = self.head
+        if not temp:
+            print("List Index Out of Range")
+            return
         
+        if index == 0:
+            self.head = temp.next
+            return
+        
+        count = 1
+        while temp.next:
+            if count == index:
+                temp.next = temp.next.next
+                return
+            count += 1
+            temp = temp.next
+            
+        print("List Index Out of Range")
+     
     def extend(self,data): # Appending a list as nodes    
         for node_data in data:
             self.append(node_data)
@@ -115,16 +164,19 @@ class LinkedList:
             count += 1
         
         return count
-    
-    
-    
+
+
 list1 = LinkedList()
 list1.add(4)             # Added 4 at the start
 list1.add(3)
 list1.print_list()          
 list1.append(5)          # Added 5 at the end 
 list1.print_list()
-list1.delete_last()      # Deleted the 5 at the end 
+list1.insert_ith(3,6)   # Adding 6 to 3rd index
+list1.print_list()
+list1.delete_last()      # Deleted the 6 at the end
+list1.print_list()
+list1.delete_ith(2)     # Deleting 5 at 2nd index 
 list1.print_list()
 list1.extend([1,2,3,4,5])# Adds a list of node_data
 list1.print_list()
@@ -138,5 +190,3 @@ list1.print_list()
 print(list1.find_nth(1) , "(index = 1)") # Finding element of nth index in linked list
 print(list1.find_k(4) , "(K = 4)")       # Finding index of K in the linked list              
 print(list1.length())    # Returning length of linked list
-
-
