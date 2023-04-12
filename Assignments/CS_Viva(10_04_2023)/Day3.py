@@ -63,7 +63,7 @@ class LinkedList:
         
         count = 1 
         temp = self.head
-        while temp.next:
+        while temp:
             if count == index:
                 next = temp.next
                 temp.next = node
