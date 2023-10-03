@@ -1,6 +1,7 @@
 # CS142 - NISER
 A well explained course work for CS142 at [NISER](https://www.niser.ac.in)
 
+Course Instructor : [Abhishek Sahu](https://sites.google.com/view/abhisheksahu1) and [Abhranil Chatterjee](https://cabhranil.bitbucket.io)
 
 Made with love: Harisankar Binod <3
 
