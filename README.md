@@ -1,12 +1,14 @@
 # CS142 - NISER
-A well explained course work for CS142 at [NISER](https://www.niser.ac.in)
-
-Course Instructor : [Abhishek Sahu](https://sites.google.com/view/abhisheksahu1) and [Abhranil Chatterjee](https://cabhranil.bitbucket.io)
+Course work for CS142 at [NISER](https://www.niser.ac.in)
 
 Made with love: Harisankar Binod <3
 
 
-# Contents
+# 2022 Fall Semster
+
+Course Instructor : [Abhishek Sahu](https://sites.google.com/view/abhisheksahu1) and [Abhranil Chatterjee](https://cabhranil.bitbucket.io)
+
+## Contents
 
 - [Assignment 1](https://github.com/Methaphur/CS142-NISER/tree/main/Assignments/Assignment_1(09-01-2023)) Recursion and Insertion Sort
 - [Assignment 2](https://github.com/Methaphur/CS142-NISER/tree/main/Assignments/Assignment_2(16_01_2023)) Evaluting an Expression and Time Complexity
@@ -18,3 +20,15 @@ Made with love: Harisankar Binod <3
 - [Assignment 8](https://github.com/Methaphur/CS142-NISER/tree/main/Assignments/Assignment_8(27_03_2023)) Binary Trees
 - [Assignment 9](https://github.com/Methaphur/CS142-NISER/tree/main/Assignments/Assignment_9(03_04_2023)) Hashing and hash-tables 
 ---
+
+# 2023 Fall Semester
+
+## Contents
+(very tentative list , will update with further info)
+- Binary Search
+- Merging two Sorted Lists
+- Insertion Sort    
+- Using Swap and minimum finding 
+- Matrix Multiplication
+- Cipher Design
+- Image Editor
