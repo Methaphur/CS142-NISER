@@ -30,3 +30,12 @@ median = find_median(numbers)
 
 print("Root Mean Square:", rms)
 print("Median:", median)
+
+# Problem 2
+# Find the minimum value of all stored values in nodes in a given binary search tree
+def find_min_bst(root):
+    if root is None:
+        return None
+    if root.left is None:
+        return root.value
+    return find_min_bst(root.left)
