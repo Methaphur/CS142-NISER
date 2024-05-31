@@ -1,11 +1,11 @@
 # Problem 1
 
-def root_mean_square(numbers):
+def mean_square(numbers):
     square_sum = 0
     for num in numbers:
         square_sum += num ** 2
-    rms = (square_sum / len(numbers)) ** 0.5
-    return rms
+    ms = (square_sum / len(numbers))
+    return ms
 
 
 def find_median(numbers):
@@ -25,10 +25,10 @@ def find_median(numbers):
 
 
 numbers = [5, 6, 2, 8, 1, 9, 4, 6, 7, 3, 6]
-rms = root_mean_square(numbers)
+rms = mean_square(numbers)
 median = find_median(numbers)
 
-print("Root Mean Square:", rms)
+print("Mean Square:", rms)
 print("Median:", median)
 
 # Problem 2
